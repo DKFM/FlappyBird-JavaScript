@@ -1,13 +1,44 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Flappy Bird using JS | by learnWD</title>
-  </head>
-  <body>
-   <h3>flappyBird by LearnWD</h3>
-   
-   <canvas id="canvas" width="288" height="512"></canvas>
-   
-   <script src="flappyBird.js"></script>
-  </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flappy Bird</title>
+    <style>
+        /* 确保 body 和 html 填满整个页面 */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #000;
+        }
+
+        /* 游戏容器填满整个页面 */
+        #game-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100vw; /* 100% 视口宽度 */
+            height: 100vh; /* 100% 视口高度 */
+        }
+
+        /* 画布填满父容器，同时保持宽高比 */
+        #canvas {
+            background-color: #70c5ce;
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain; /* 保持宽高比 */
+        }
+    </style>
+</head>
+<body>
+<div id="game-container">
+    <canvas id="canvas"></canvas>
+</div>
+<script src="flappyBird.js"></script>
+</body>
 </html>
