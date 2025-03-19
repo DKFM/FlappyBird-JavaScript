@@ -5,40 +5,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flappy Bird</title>
     <style>
-        /* 确保 body 和 html 填满整个页面 */
+        /* 修改后的CSS */
         body, html {
             margin: 0;
             padding: 0;
             height: 100%;
             overflow: hidden;
             display: flex;
-            justify-content: center;
-            align-items: center;
             background-color: #000;
         }
 
-        /* 游戏容器填满整个页面 */
-        #game-container {
+        #main {
+            border: 2px solid red;
+            width: 100vw;
+            height: 100vh;
             display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 100vw; /* 100% 视口宽度 */
-            height: 100vh; /* 100% 视口高度 */
+            flex: 1; /* 新增 */
+            background: #1a1a1a;
         }
 
-        /* 画布填满父容器，同时保持宽高比 */
+        #left, #right {
+            border: 2px solid red;
+            min-width: 320px;
+            background: #333;
+            padding: 1rem;
+            flex-shrink: 0; /* 防止侧边栏被压缩 */
+        }
+
+        #game-container {
+            flex: 1; /* 关键修改：占据剩余空间 */
+            position: relative;
+            overflow: hidden;
+            /* 移除 width/height 设置 */
+            /* 移除 display:flex 和居中属性 */
+        }
+
         #canvas {
-            background-color: #70c5ce;
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain; /* 保持宽高比 */
+            width: 100% !important; /* 强制填满 */
+            height: 100% !important;
+            display: block;
+            background: #000;
         }
     </style>
 </head>
 <body>
-<div id="game-container">
-    <canvas id="canvas"></canvas>
+<div id="main">
+    <div id="left"></div>
+    <div id="game-container" >
+        <canvas id="canvas"></canvas>
+    </div>
+    <div id="right"></div>
 </div>
+
 <script src="flappyBird.js"></script>
 </body>
 </html>
